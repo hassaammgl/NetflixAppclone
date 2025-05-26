@@ -1,18 +1,18 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import MediaListItem from "@/components/MediaListItem";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import mediaList from "@assets/data/mediaList.json";
+import MediaListItem from "@/components/MediaListItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "@expo/vector-icons/Feather";
 
-export default function HomeScreen() {
+export default function HomeSceen() {
 	return (
-		<SafeAreaView style={styles.container}>
+		<SafeAreaView>
 			<View style={styles.headerContainer}>
 				<View style={styles.headerTitleContainer}>
-					<Text style={styles.headerTitle}>For Rat</Text>
+					<Text style={styles.headerTitle}>For Ratx16</Text>
 					<Feather name="search" size={22} color="white" />
 				</View>
-				<View style={{ flexDirection: "row", gap: 5 }}>
+				<View style={styles.filterContainer}>
 					<Text style={styles.filterText}>TV Shows</Text>
 					<Text style={styles.filterText}>Movies</Text>
 					<Text style={styles.filterText}>Categories</Text>
@@ -31,7 +31,6 @@ export default function HomeScreen() {
 							renderItem={({ item: horizontalListItem }) => (
 								<MediaListItem mediaItem={horizontalListItem} />
 							)}
-							showsHorizontalScrollIndicator={false}
 						/>
 					</View>
 				)}
@@ -41,26 +40,11 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		paddingHorizontal: 5,
-		gap: 10,
-	},
-	filterText: {
-		color: "lightgrey",
-		borderWidth: 1,
-		borderColor: "lightgrey",
-		borderRadius: 15,
-		paddingHorizontal: 10,
-		paddingVertical: 5,
-		fontSize: 12,
-		fontWeight: "bold",
-	},
 	sectionTitle: {
-		fontSize: 16,
+		fontSize: 17,
+		color: "white",
 		fontWeight: "700",
 		paddingVertical: 10,
-		color: "white",
 	},
 	headerTitle: {
 		color: "white",
@@ -70,6 +54,20 @@ const styles = StyleSheet.create({
 	headerTitleContainer: {
 		flexDirection: "row",
 		justifyContent: "space-between",
+	},
+	filterText: {
+		color: "lightgrey",
+		fontSize: 12,
+		borderWidth: 1,
+		borderColor: "lightgrey",
+		borderRadius: 15,
+		fontWeight: "bold",
+		paddingVertical: 5,
+		paddingHorizontal: 10,
+	},
+	filterContainer: {
+		flexDirection: "row",
+		gap: 5,
 	},
 	headerContainer: {
 		marginHorizontal: 10,
